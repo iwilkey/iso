@@ -1,6 +1,6 @@
 import math
 from typing import List
-from vec import Vec3
+from .vec import Vec3
 
 class Mat4:
 
@@ -24,6 +24,13 @@ class Mat4:
 			0, 0, 1, 0,
 			0, 0, 0, 1
 		]
+	
+	def to_list(self) -> List[float]:
+		"""
+		Return the internal list of 16 floats.
+		(Row-major: row 0 first, then row 1, etc.)
+		"""
+		return self.m.copy()
 
 	def __mul__(self, other : 'Mat4') -> 'Mat4':
 		a = self.m
