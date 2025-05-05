@@ -26,10 +26,6 @@ class Mat4:
 		]
 	
 	def to_list(self) -> List[float]:
-		"""
-		Return the internal list of 16 floats.
-		(Row-major: row 0 first, then row 1, etc.)
-		"""
 		return self.m.copy()
 
 	def __mul__(self, other : 'Mat4') -> 'Mat4':
@@ -86,6 +82,24 @@ class Mat4:
 			s, c,0,0,
 			0, 0,1,0,
 			0, 0,0,1
+		])
+	
+	@staticmethod
+	def translation(x: float, y: float, z: float) -> 'Mat4':
+		return Mat4([
+			1, 0, 0, 0,
+			0, 1, 0, 0,
+			0, 0, 1, 0,
+			x, y, z, 1,
+		])
+
+	@staticmethod
+	def scale(sx: float, sy: float, sz: float) -> 'Mat4':
+		return Mat4([
+			sx, 0,  0,  0,
+			 0, sy, 0,  0,
+			 0,  0, sz, 0,
+			 0,  0,  0, 1,
 		])
 
 	@staticmethod

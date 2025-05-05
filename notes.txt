@@ -1,0 +1,8 @@
+so, the transformations when the camera is not moved:
+
++X -> right
+-X -> left
++Y -> Up
+-Y -> Down
++Z -> Back
+-Z -> Toward
